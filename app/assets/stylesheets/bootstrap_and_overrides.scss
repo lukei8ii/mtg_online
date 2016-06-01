@@ -2,9 +2,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  // background-color: #FFCC00;
+}
+
+html {
+  height: 100%;
+}
+
+.fluid-container {
+  height: 100%;
+}
+
+.navbar {
+  margin-bottom: 1px;
+}
+
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
+}
+
+.player-area {
+  height: 50%;
+
+  .row {
+    height: 33%;
+
+    .col-md-3, .col-md-9 {
+      height: 100%;
+    }
+  }
+}
+
+.card {
+  max-width:100%;
+  max-height:100%;
+  padding: 2px;
+
+  &:hover {
+    border: 2px #ffa500 solid;
+    padding: 0;
+  }
 }
 
 // apply styles to HTML elements
@@ -12,10 +54,9 @@
 main {
   @extend .container;
   background-color: #eee;
-  padding-bottom: 80px;
+  // padding-bottom: 80px;
   width: 100%;
-  height: 100vh;
-  margin-top: 51px; // accommodate the navbar
+  height: 400px; // TODO: set this with JS
 }
 
 section {

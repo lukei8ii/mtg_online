@@ -1,16 +1,14 @@
-<div class="fluid-container fill">
+<div class="fluid-container">
   <div class="player-area">
     <div class="row">
       <div class="col-md-3">
-        <h2><%= @player2.name %></h2>
-        <h2>20</h2>
+        <p><%= @player2.name %></p>
+        <p>20</p>
       </div>
       <div class="col-md-9">
         <% @player2.hand.each do |card| %>
           <img
             class="card"
-            height="132"
-            width="95"
             src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card"
             alt="<%= card.name %>"
             title="<%= card.name %>" />
@@ -57,16 +55,14 @@
         <% @player1.hand.each do |card| %>
           <img
             class="card"
-            height="132"
-            width="95"
             src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card"
             alt="<%= card.name %>"
             title="<%= card.name %>" />
         <% end %>
       </div>
       <div class="col-md-3">
-        <h2><%= @player1.name %></h2>
-        <h2>20</h2>
+        <p><%= @player1.name %></p>
+        <p>20</p>
       </div>
     </div>
   </div>
