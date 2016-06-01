@@ -1,0 +1,3 @@
+<% @library.cards.first(7).each do |card| %>
+  <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card" alt="<%= card.name %>" />
+<% end %>
