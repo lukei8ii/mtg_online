@@ -1,3 +1,8 @@
-<% @library.cards.first(7).each do |card| %>
-  <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card" alt="<%= card.name %>" />
+<h1>Player 1 - <%= @player1.deck_name %></h1>
+<% @player1.library.cards.first(7).each do |card| %>
+  <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card" alt="<%= card.name %>" title="<%= card.name %>" />
+<% end %>
+<h1>Player 2 - <%= @player2.deck_name %></h1>
+<% @player2.library.cards.first(7).each do |card| %>
+  <img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card" alt="<%= card.name %>" title="<%= card.name %>" />
 <% end %>

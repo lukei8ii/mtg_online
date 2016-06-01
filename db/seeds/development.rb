@@ -74,3 +74,15 @@ Dir.glob(Rails.root.join('db', 'seeds', '*.txt')).each do |deck_file_name|
     end
   end
 end
+
+User.find_or_create_by(email: 'shea.hunter@gmail.com') do |user|
+  user.name = 'Shea'
+  user.password = '123456'
+  user.password_confirmation = '123456'
+end
+
+User.find_or_create_by(email: 'tomtux@gmail.com') do |user|
+  user.name = 'Thomas'
+  user.password = '123456'
+  user.password_confirmation = '123456'
+end
