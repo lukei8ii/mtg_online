@@ -7,11 +7,17 @@
       </div>
       <div class="col-md-9">
         <% @player2.hand.each do |card| %>
-          <img
-            class="card"
-            src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card"
-            alt="<%= card.name %>"
-            title="<%= card.name %>" />
+          <% image_source = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{card.multiverse_id}&type=card" %>
+          <a href="<%= image_source %>"
+             data-toggle="lightbox"
+             data-title="<%= card.name %>"
+             data-width=223
+             data-height=311>
+            <img
+              class="card"
+              src="<%= image_source %>"
+              alt="<%= card.name %>" />
+          </a>
         <% end %>
       </div>
     </div>
@@ -53,11 +59,17 @@
     <div class="row">
       <div class="col-md-9">
         <% @player1.hand.each do |card| %>
-          <img
-            class="card"
-            src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=<%= card.multiverse_id %>&type=card"
-            alt="<%= card.name %>"
-            title="<%= card.name %>" />
+          <% image_source = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{card.multiverse_id}&type=card" %>
+          <a href="<%= image_source %>"
+             data-toggle="lightbox"
+             data-title="<%= card.name %>"
+             data-width=223
+             data-height=311>
+            <img
+              class="card"
+              src="<%= image_source %>"
+              alt="<%= card.name %>" />
+          </a>
         <% end %>
       </div>
       <div class="col-md-3">
