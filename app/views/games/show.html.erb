@@ -1,81 +1,14 @@
 <div class="fluid-container">
-  <div class="player-area">
-    <div class="row">
-      <div class="col-md-3">
-        <p><%= @player2.name %></p>
-        <p>20</p>
-      </div>
-      <div class="col-md-9">
-        <% @player2.hand.each do |card| %>
-          <% image_source = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{card.multiverse_id}&type=card" %>
-          <a href="<%= image_source %>"
-             data-toggle="lightbox"
-             data-title="<%= card.name %>"
-             data-width=223
-             data-height=311>
-            <img
-              class="card"
-              src="<%= image_source %>"
-              alt="<%= card.name %>" />
-          </a>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        Library goes here
-      </div>
-      <div class="col-md-9">
-        Land goes here
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        Graveyard goes here
-      </div>
-      <div class="col-md-9">
-        Creatures go here
-      </div>
-    </div>
+  <div class="turn_parts">
+    <ol class="breadcrumb">
+      <%= render "turn_parts", turn: @game.current_turn %>
+    </ol>
+  </div>
+  <div class="player-area <%= @player2.is_turn? ? 'player-area-active' : '' %>">
+     <%= render "opponent", player: @player2 %>
   </div>
 
-  <div class="player-area">
-    <div class="row">
-      <div class="col-md-9">
-        Creatures go here
-      </div>
-      <div class="col-md-3">
-        Graveyard goes here
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9">
-        Land goes here
-      </div>
-      <div class="col-md-3">
-        Library goes here
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-9">
-        <% @player1.hand.each do |card| %>
-          <% image_source = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{card.multiverse_id}&type=card" %>
-          <a href="<%= image_source %>"
-             data-toggle="lightbox"
-             data-title="<%= card.name %>"
-             data-width=223
-             data-height=311>
-            <img
-              class="card"
-              src="<%= image_source %>"
-              alt="<%= card.name %>" />
-          </a>
-        <% end %>
-      </div>
-      <div class="col-md-3">
-        <p><%= @player1.name %></p>
-        <p>20</p>
-      </div>
-    </div>
+  <div class="player-area <%= @player1.is_turn? ? 'player-area-active' : '' %>">
+     <%= render "player", player: @player1 %>
   </div>
 </div>

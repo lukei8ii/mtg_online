@@ -12,10 +12,9 @@ class GamesController < ApplicationController
     @player1 = Player.first
     @player2 = Player.second
 
-    @player1.library = Library.new @deck1
-    @player2.library = Library.new @deck2
+    @player1.choose_deck @deck1
+    @player2.choose_deck @deck2
 
-    @player1.draw!
-    @player2.draw!
+    @game = Game.new [@player1, @player2]
   end
 end

@@ -15,7 +15,7 @@ cards.each do |card_json|
   if card_json['colors']
     colors = card_json['colors'].map do |name|
       Color.find_or_create_by({
-        name: name
+        name: name.downcase
       })
     end
   end
@@ -23,7 +23,7 @@ cards.each do |card_json|
   if card_json['types']
     types = card_json['types'].map do |name|
       Type.find_or_create_by({
-        name: name
+        name: name.downcase
       })
     end
   end
@@ -31,7 +31,7 @@ cards.each do |card_json|
   if card_json['subtypes']
     subtypes = card_json['subtypes'].map do |name|
       Subtype.find_or_create_by({
-        name: name
+        name: name.downcase
       })
     end
   end
