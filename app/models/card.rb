@@ -30,18 +30,16 @@ class Card < ApplicationRecord
     @container == @owner.hand
   end
 
-  def can_play_in_phase?(phase)
+  def can_play_in_turn_part?(part)
     true
   end
 
   def can_play?
     throw "Card has no owner" unless @owner
 
-    # TODO: implement rules:
     return false unless in_hand?
     return false unless @owner.is_turn?
-    return unless can_play_in_phase? @game.turn.phase
-    # must be appropriate phase of turn
+    return unless can_play_in_turn_part? @game.current_part
     return false unless @owner.can_pay_cost? card
   end
 

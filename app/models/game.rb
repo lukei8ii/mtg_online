@@ -56,14 +56,7 @@ class Game
 
   def next_player
     player_index = @players.index(current_player)
-
-    if player_index >= @players.count
-      player_index = 0
-    else
-      player_index += 1
-    end
-
-    player_index = 0 if player_index >= @players.count
+    player_index = player_index >= @players.count ? 0 : player_index + 1
 
     @players[player_index]
   end

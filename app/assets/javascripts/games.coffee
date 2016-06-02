@@ -23,7 +23,8 @@ $(document).delegate '*[data-toggle="lightbox"]', 'click', (event) ->
   return
 
 resizeMain = ->
-  $('main').height $(window).height() - $('header').height() - 1
+  header_stuff = $('header').height() + 1
+  $('main').height $(window).height() - header_stuff
   return
 
 $ ->

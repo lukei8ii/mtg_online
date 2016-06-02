@@ -27,7 +27,7 @@ html {
 }
 
 .player-area {
-  height: 50%;
+  height: 45%;
 
   .row {
     height: 33%;
@@ -36,6 +36,19 @@ html {
       height: 100%;
     }
   }
+}
+
+.turn_parts {
+  height: 10%;
+}
+
+.breadcrumb {
+  height: 100%;
+  margin-bottom: 1px;
+}
+
+.breadcrumb > .active {
+  color: #F53737;
 }
 
 .player-area-active {
