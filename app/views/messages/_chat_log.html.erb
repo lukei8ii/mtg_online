@@ -1,0 +1,4 @@
+<% locals[:messages].each do |message| %>
+  <% type = "messages/" + (message.sender == current_user ? "sent" : "received") %>
+  <%= render type, message: message %>
+<% end %>

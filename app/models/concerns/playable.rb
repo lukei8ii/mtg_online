@@ -1,5 +1,6 @@
-class Player < User
-
+module Playable
+  extend ActiveSupport::Concern
+  
   attr_accessor :deck
   attr_accessor :game
   attr_accessor :library

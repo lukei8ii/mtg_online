@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  # before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show]
 
   def index
   end
@@ -9,8 +9,8 @@ class GamesController < ApplicationController
     @deck1 = params[:deck1].present? ? Deck.with_cards.find(params[:deck1]) : Deck.with_cards.find(rand(1..5))
     @deck2 = params[:deck2].present? ? Deck.with_cards.find(params[:deck2]) : Deck.with_cards.find(rand(1..5))
 
-    @player1 = Player.first
-    @player2 = Player.second
+    @player1 = current_user
+    @player2 = User.second
 
     @player1.choose_deck @deck1
     @player2.choose_deck @deck2
@@ -27,6 +27,10 @@ class GamesController < ApplicationController
     2.times do
       @player1.cards_in_play.first.destroy!
       @player2.cards_in_play.first.destroy!
+    end
+
+    @messages = 5.times.map do
+      Message.new([@player1, @player2].sample, "testing chat!")
     end
   end
 end

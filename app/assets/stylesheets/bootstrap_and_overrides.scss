@@ -111,14 +111,34 @@ section {
 
 .chat {
   padding-left: 0;
-  margin-top: 15px;
 }
 
 .chat-log {
+  margin-top: 15px;
+  margin-bottom: 0;
   width: 100%;
   background-color: #fff;
   border: 1px solid #ccc;
   height: calc(100% - 64px);
+
+  dt.received,
+  dt.received+dd {
+    background-color: #FF7F50;
+  }
+
+  dt.received+dd+dt.received {
+    display: none;
+  }
+
+  dt.sent,
+  dt.sent+dd {
+    text-align: right;
+    background-color: #ADD8E6;
+  }
+
+  dt.sent+dd+dt.sent {
+    display: none;
+  }
 }
 
 .chat form {
