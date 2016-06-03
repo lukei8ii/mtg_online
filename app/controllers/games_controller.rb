@@ -16,5 +16,17 @@ class GamesController < ApplicationController
     @player2.choose_deck @deck2
 
     @game = Game.new [@player1, @player2]
+
+    7.times do
+      @player1.draw!
+      @player1.hand.first.play!
+      @player2.draw!
+      @player2.hand.first.play!
+    end
+
+    2.times do
+      @player1.cards_in_play.first.destroy!
+      @player2.cards_in_play.first.destroy!
+    end
   end
 end

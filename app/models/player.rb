@@ -39,6 +39,10 @@ class Player < User
     @library.deck.name
   end
 
+  def cards_in_play
+    @battlefield.cards
+  end
+
   def is_turn?
     @game.current_player == self
   end

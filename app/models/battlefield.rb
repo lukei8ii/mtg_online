@@ -8,4 +8,8 @@ class Battlefield
     @side = []
     @land = []
   end
+
+  def cards
+    @land + @main + @side
+  end
 end

@@ -15,6 +15,14 @@ html {
 
 .fluid-container {
   height: 100%;
+
+  .row {
+    height: 100%;
+
+    >div {
+      height: 100%;
+    }
+  }
 }
 
 .navbar {
@@ -27,20 +35,32 @@ html {
 }
 
 .player-area {
-  height: 45%;
+  // height: 50%;
 
   .row {
-    height: 33%;
+    height: 100%;
 
-    .col-md-3, .col-md-9 {
+    >div {
       height: 100%;
+
+      &.side {
+        height: 33%;
+      }
+
+      .row {
+        height: 33%;
+
+        > div {
+          height: 100%;
+        }
+      }
     }
   }
 }
 
-.turn_parts {
-  height: 10%;
-}
+// .turn_parts {
+//   height: 10%;
+// }
 
 .breadcrumb {
   height: 100%;
@@ -79,6 +99,7 @@ main {
   @extend .container;
   background-color: #eee;
   // padding-bottom: 80px;
+  // padding-top: 37px;
   width: 100%;
   height: 400px; // TODO: set this with JS
 }
@@ -86,4 +107,28 @@ main {
 section {
   @extend .row;
   margin-top: 20px;
+}
+
+.chat {
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.chat-log {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  height: calc(100% - 64px);
+}
+
+.chat form {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: -1px;
+
+    .chat-input {
+      width: 100%;
+      border-radius: 0;
+    }
 }

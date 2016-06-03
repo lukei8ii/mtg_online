@@ -23,7 +23,7 @@ class Card < ApplicationRecord
   end
 
   def is_permanent?
-    types.include? Type.permanent
+    (types & Type.permanent).any?
   end
 
   def in_hand?
@@ -46,19 +46,25 @@ class Card < ApplicationRecord
   def play!
     @owner.pay_cost! self
 
-    if card.is_creature?
-      move_to @battlefield.main
-    elsif card.is_land?
-      move_to @battlefield.land
-    elsif card.is_permanent?
-      move_to @battlefield.side
+    if is_creature?
+      move_to @owner.battlefield.main
+    elsif is_land?
+      move_to @owner.battlefield.land
+    elsif is_permanent?
+      move_to @owner.battlefield.side
     else
-      move_to @game.stack
+      move_to @owner.game.stack
     end
 
     broadcast(:entered_battlefield, self)
 
     self
+  end
+
+  def destroy!
+    move_to @owner.graveyard
+
+    broadcast(:destroyed, self)
   end
 
   def move_to(new_container)

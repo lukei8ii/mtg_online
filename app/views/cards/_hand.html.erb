@@ -1,0 +1,3 @@
+<% locals[:cards].each do |card| %>
+  <%= render "cards/card", locals: { card: card, hidden: locals[:hidden] } %>
+<% end %>

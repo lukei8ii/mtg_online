@@ -5,6 +5,7 @@ class Library
   attr_reader :cards
 
   def initialize(owner, deck)
+    @owner = owner
     @deck = deck
     @cards = []
 

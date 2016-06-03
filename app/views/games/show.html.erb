@@ -1,14 +1,24 @@
 <div class="fluid-container">
-  <div class="turn_parts">
-    <ol class="breadcrumb">
-      <%= render "turn_parts", turn: @game.current_turn %>
-    </ol>
-  </div>
-  <div class="player-area <%= @player2.is_turn? ? 'player-area-active' : '' %>">
-     <%= render "opponent", player: @player2 %>
-  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="turn_parts">
+        <ol class="breadcrumb">
+          <%= render "turn_parts", turn: @game.current_turn %>
+        </ol>
+      </div>
+      <div class="player-area <%= @player2.is_turn? ? 'player-area-active' : '' %>">
+        <%= render "opponent", player: @player2 %>
+      </div>
 
-  <div class="player-area <%= @player1.is_turn? ? 'player-area-active' : '' %>">
-     <%= render "player", player: @player1 %>
+      <div class="player-area <%= @player1.is_turn? ? 'player-area-active' : '' %>">
+        <%= render "player", player: @player1 %>
+      </div>
+    </div>
+    <div class="col-md-2 chat">
+      <div class="chat-log"></div>
+      <form class="navbar-form navbar-left" role="search">
+        <input type="text" class="form-control chat-input" placeholder="Send a message">
+      </form>
+    </div>
   </div>
 </div>

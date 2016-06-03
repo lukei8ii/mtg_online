@@ -1,0 +1,23 @@
+<% card = locals[:card] %>
+
+<% if card %>
+  <% if locals[:hidden] %>
+    <img
+      class="card card-no-hover"
+      src="/assets/card_back.jpeg"
+      alt="Library"
+      title="Library" />
+  <% else %>
+    <% image_source = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{card.multiverse_id}&type=card" %>
+    <a href="<%= image_source %>"
+       data-toggle="lightbox"
+       data-title="<%= card.name %>"
+       data-width=223
+       data-height=311>
+      <img
+        class="card"
+        src="<%= image_source %>"
+        alt="<%= card.name %>" />
+    </a>
+  <% end %>
+<% end %>

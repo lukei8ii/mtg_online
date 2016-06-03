@@ -23,8 +23,13 @@ $(document).delegate '*[data-toggle="lightbox"]', 'click', (event) ->
   return
 
 resizeMain = ->
-  header_stuff = $('header').height() + 1
-  $('main').height $(window).height() - header_stuff
+  window_height = $(window).height()
+  header_height = $('header').height() + 1
+  turn_parts_height = $('.turn_parts').height()
+  main_height = window_height - header_height
+  player_area_height = (main_height - turn_parts_height) / 2
+  $('main').height(main_height)
+  $('.player-area').height(player_area_height)
   return
 
 $ ->

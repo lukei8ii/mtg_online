@@ -1,43 +1,32 @@
 <div class="row">
-  <div class="col-md-9">
-    Creatures go here
+  <div class="col-md-2 side">
+    <%= render "cards/battlefield_section", cards: player.battlefield.side %>
   </div>
-  <div class="col-md-3">
-    Graveyard goes here
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-9">
-    Land goes here
-  </div>
-  <div class="col-md-3">
-    <a href="#">
-      <img
-        class="card"
-        src="/assets/card_back.jpeg"
-        alt="Library"
-        title="Library" />
-    </a>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-9">
-    <% player.hand.each do |card| %>
-      <% image_source = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=#{card.multiverse_id}&type=card" %>
-      <a href="<%= image_source %>"
-         data-toggle="lightbox"
-         data-title="<%= card.name %>"
-         data-width=223
-         data-height=311>
-        <img
-          class="card"
-          src="<%= image_source %>"
-          alt="<%= card.name %>" />
-      </a>
-    <% end %>
-  </div>
-  <div class="col-md-3">
-    <p><%= player.name %></p>
-    <p><%= player.life %></p>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-10">
+        <%= render "cards/battlefield_section", cards: player.battlefield.main %>
+      </div>
+      <div class="col-md-2">
+        <%= render "cards/graveyard", cards: player.graveyard %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <%= render "cards/battlefield_section", cards: player.battlefield.land %>
+      </div>
+      <div class="col-md-2">
+        <%= render "cards/library", cards: player.library.cards %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <%= render "cards/hand", locals: { cards: player.hand } %>
+      </div>
+      <div class="col-md-2">
+        <p><%= player.name %></p>
+        <p><%= player.life %></p>
+      </div>
+    </div>
   </div>
 </div>
